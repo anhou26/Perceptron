@@ -27,12 +27,6 @@ This project went through several iterations to improve performance and mathemat
 ## Visualizing the Learning
 Instead of a "black box," the Streamlit app reshapes the final $1 \times 784$ weight matrix back into a $28 \times 28$ image. This generates a heatmap showing exactly what the AI "looks for" when classifying an image. Brighter red pixels indicate areas the model strongly associates with a `0`, while darker blue pixels indicate a `1`.
 
-*(Here are some expected inputs: When drawn centrally and with standard proportions, the ink cleanly activates the correct regions of the weight matrix (the blue center for '1', the red outer ring for '0'). The model easily powers through minor noise, like the slash in the zero or a small base on the one. ).*
-
-| Perfect '1' | Thick '1' | Standard '0' | Slashed '0' |
-| :---: | :---: | :---: | :---: |
-| <img src="Images%20for%20Github/Right.png" width="150"/> | <img src="Images%20for%20Github/Right_1.png" width="150"/> | <img src="Images%20for%20Github/Right_0.png" width="150"/> | <img src="Images%20for%20Github/0_is_right.png" width="150"/> |
-
 ## Model Limitations: A Study in Spatial Exactness
 
 Because this is a single-layer perceptron computing a single dot product, it acts as a **spatial template matcher**. It lacks the translation and scale invariance found in Convolutional Neural Networks (CNNs). 
