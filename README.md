@@ -4,6 +4,9 @@ A from-scratch Python implementation of a single-layer perceptron classifying ha
 
 Trained on a subset of the MNIST dataset (8,816 images of 0s and 1s), this repository includes an interactive Streamlit web application to visualize the trained weight matrix and test the model with live user uploads.
 
+*(Note: The repository relies on pre-trained weights to keep the size lightweight. The raw training dataset is not included in this repo, but is the MNIST dataset of JPG images from Kaggle by Stuart Colianni https://www.kaggle.com/datasets/scolianni/mnistasjpg?resource=download).*
+
+
 ## Features
 
 * **From-Scratch Mathematics:** Implements matrix multiplication and the $y = \tanh(W \cdot X)$ activation function using only NumPy.
@@ -20,25 +23,6 @@ This project went through several iterations to improve performance and mathemat
 
 * `2026_perceptron.py`: The core training script handles raw image preprocessing, dataset compilation/caching (saving to `.npz`), training loops, and saving the final trained weights (`.npy`).
 * `app_perceptron.py`: The Streamlit web application loads the pre-trained weights, processes user-uploaded images, and outputs real-time predictions.
-
-## Installation & Setup
-
-1. **Clone the repository:**
-   \`\`\`bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
-   \`\`\`
-
-2. **Install dependencies:**
-   \`\`\`bash
-   pip install numpy Pillow matplotlib streamlit
-   \`\`\`
-
-3. **Run the Web App:**
-   *(Note: The repository relies on pre-trained weights to keep the size lightweight. The raw training dataset is not included in this repo, but is the MNIST dataset of JPG images from Kaggle by Stuart Colianni https://www.kaggle.com/datasets/scolianni/mnistasjpg?resource=download).*
-   \`\`\`bash
-   streamlit run app_perceptron.py
-   \`\`\`
 
 ## Visualizing the Learning
 Instead of a "black box," the Streamlit app reshapes the final $1 \times 784$ weight matrix back into a $28 \times 28$ image. This generates a heatmap showing exactly what the AI "looks for" when classifying an image. Brighter red pixels indicate areas the model strongly associates with a `0`, while darker blue pixels indicate a `1`.
