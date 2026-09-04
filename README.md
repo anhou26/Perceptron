@@ -1,5 +1,6 @@
 # Perceptron
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://0-vs-1-classifier.streamlit.app/)A from-scratch Python implementation of a single-layer perceptron classifying handwritten 0s and 1s. Built entirely with NumPy to demonstrate foundational ML math—including forward propagation, custom backpropagation, and memory optimization. Features an interactive Streamlit web app for live inference and weight matrix visualization.
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://0-vs-1-classifier.streamlit.app/)
+A from-scratch Python implementation of a single-layer perceptron classifying handwritten 0s and 1s. Built entirely with NumPy to demonstrate foundational ML math—including forward propagation, custom backpropagation, and memory optimization. Features an interactive Streamlit web app for live inference and weight matrix visualization.
 
 Trained on a subset of the MNIST dataset (8,816 images of 0s and 1s), this repository includes an interactive Streamlit web application to visualize the trained weight matrix and test the model with live user uploads.
 
