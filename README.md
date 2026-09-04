@@ -31,7 +31,7 @@ Instead of a "black box," the Streamlit app reshapes the final $1 \times 784$ we
 
 | Perfect '1' | Thick '1' | Standard '0' | Slashed '0' |
 | :---: | :---: | :---: | :---: |
-| <img src="assets/Right.png" width="150"/> | <img src="assets/Right_1.png" width="150"/> | <img src="assets/Right_0.png" width="150"/> | <img src="assets/0_is_right.png" width="150"/> |).*
+| <img src="Images%20for%20Github/Right.png" width="150"/> | <img src="Images%20for%20Github/Right_1.png" width="150"/> | <img src="Images%20for%20Github/Right_0.png" width="150"/> | <img src="Images%20for%20Github/0_is_right.png" width="150"/> |).*
 
 ## Model Limitations: A Study in Spatial Exactness
 
@@ -46,7 +46,7 @@ When the input aligns with the spatial structure of the MNIST training data, the
 
 | Perfect '1' | Standard '0' | Noisy '0' (Slashed) |
 | :---: | :---: | :---: |
-| <img src="assets/Right.png" width="150"/> | <img src="assets/Right_0.png" width="150"/> | <img src="assets/0_is_right.png" width="150"/> |
+| <img src="Images%20for%20Github/Right.png" width="150"/> | <img src="Images%20for%20Github/Right_0.png" width="150"/> | <img src="Images%20for%20Github/0_is_right.png" width="150"/> |
 *Note: In the slashed '0', the strong activation of the red outer ring overpowers the noise of the slash hitting the blue center.*
 
 ### Edge Cases & Misclassifications
@@ -54,7 +54,7 @@ The model fails when a user draws a digit that spatially triggers the opposing w
 
 | The "Angled" 1 | The "Hooked" 1 |
 | :---: | :---: |
-| <img src="assets/Wrong_1.png" width="150"/> | <img src="assets/Wrong.png" width="150"/> |
+| <img src="Images%20for%20Github/Wrong_1.png" width="150"/> | <img src="Images%20for%20Github/Wrong.png" width="150"/> |
 
 * **The Angled 1:** The wide base and slanted stem miss the blue center entirely and activate the bottom-left of the red "ZERO" ring.
 * **The Hooked 1:** The large top loop mimics the top arch of a '0', heavily activating the positive red weights and tricking the model into predicting a ZERO.
