@@ -27,5 +27,39 @@ This project went through several iterations to improve performance and mathemat
 ## Visualizing the Learning
 Instead of a "black box," the Streamlit app reshapes the final $1 \times 784$ weight matrix back into a $28 \times 28$ image. This generates a heatmap showing exactly what the AI "looks for" when classifying an image. Brighter red pixels indicate areas the model strongly associates with a `0`, while darker blue pixels indicate a `1`.
 
+*(Here are some expected inputs: When drawn centrally and with standard proportions, the ink cleanly activates the correct regions of the weight matrix (the blue center for '1', the red outer ring for '0'). The model easily powers through minor noise, like the slash in the zero or a small base on the one.
+
+| Perfect '1' | Thick '1' | Standard '0' | Slashed '0' |
+| :---: | :---: | :---: | :---: |
+| <img src="assets/Right.png" width="150"/> | <img src="assets/Right_1.png" width="150"/> | <img src="assets/Right_0.png" width="150"/> | <img src="assets/0_is_right.png" width="150"/> |).*
+
+## Model Limitations: A Study in Spatial Exactness
+
+Because this is a single-layer perceptron computing a single dot product, it acts as a **spatial template matcher**. It lacks the translation and scale invariance found in Convolutional Neural Networks (CNNs). 
+
+By reshaping the trained $1 \times 784$ weight matrix into a 2D heatmap, we can visualize exactly how the model "thinks":
+* **Red Pixels (Positive Weights):** Ink here pushes the prediction toward **ZERO**. The model expects a circular shape.
+* **Blue Pixels (Negative Weights):** Ink here pushes the prediction toward **ONE**. The model expects a dense vertical line in the center.
+
+### Successful Predictions
+When the input aligns with the spatial structure of the MNIST training data, the perceptron classifies it with high confidence, even with slight variations:
+
+| Perfect '1' | Standard '0' | Noisy '0' (Slashed) |
+| :---: | :---: | :---: |
+| <img src="assets/Right.png" width="150"/> | <img src="assets/Right_0.png" width="150"/> | <img src="assets/0_is_right.png" width="150"/> |
+*Note: In the slashed '0', the strong activation of the red outer ring overpowers the noise of the slash hitting the blue center.*
+
+### Edge Cases & Misclassifications
+The model fails when a user draws a digit that spatially triggers the opposing weights. 
+
+| The "Angled" 1 | The "Hooked" 1 |
+| :---: | :---: |
+| <img src="assets/Wrong_1.png" width="150"/> | <img src="assets/Wrong.png" width="150"/> |
+
+* **The Angled 1:** The wide base and slanted stem miss the blue center entirely and activate the bottom-left of the red "ZERO" ring.
+* **The Hooked 1:** The large top loop mimics the top arch of a '0', heavily activating the positive red weights and tricking the model into predicting a ZERO.
+
+**Takeaway:** This illustrates the limitations of standard artificial neural networks (ANNs) in computer vision. To solve this edge case and recognize digits regardless of where they are drawn on the canvas, a model requires convolution operations (filters/kernels) to detect localized features rather than global spatial templates.
+
 ## License
 Distributed under the MIT License.
