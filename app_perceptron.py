@@ -14,17 +14,17 @@ def forward_prop(weight, data, column):
 
 # Image preprocessing pipeline for user-uploaded images 
 def process_user_image(uploaded_file):
-    # 1. Open and convert to grayscale
+    # Open and convert to grayscale
     img = Image.open(uploaded_file).convert('L')
     img = img.resize((28, 28))
     data = np.asarray(img)
     
-    # 2. Check if the image has a white background (average pixel > 127)
-    # If it does, invert it so it matches MNIST (black background, white digits)
+    # Check if the image has a white background (average pixel > 127)
+    # If yes, invert to match MNIST (black background, white digits)
     if np.mean(data) > 127:
         data = 255 - data
         
-    # 3. Flatten to 784 x 1
+    # Flatten to 784 x 1
     return data.reshape(-1, 1)
 
 # Load trained weights 
@@ -80,7 +80,6 @@ with tab2:
         formatted_image = process_user_image(uploaded_file)
         prediction = forward_prop(weights, formatted_image, 0)
         
-        # Display the result!
         if prediction == 1:
             st.success("The Perceptron thinks this is a ZERO!")
         else:
