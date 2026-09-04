@@ -68,7 +68,7 @@ with tab1:
 with tab2:
     # User Interface
     st.title("Perceptron: 0 vs 1 Classifier")
-    st.write("Drag and drop an image below to test the Perceptron! Note that you can search for something like \"handwritten 0 or handwritten 1\" and snip images to drag and drop into the box!")
+    st.write("Drag and drop an image of a handwritten 0 or 1 below to test the Perceptron! Note that you can search something like \"handwritten 0 or handwritten 1\" and snip it to drag and drop the image! Pro Tip: Avoid transparent backgrounds and uncentered digits for best results.")
 
     uploaded_file = st.file_uploader("Upload an image...", type=["jpg", "jpeg", "png"])
 
